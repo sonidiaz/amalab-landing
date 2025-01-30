@@ -1,15 +1,17 @@
 ---
-import astroLogo from '../assets/aMa_lab-logo300x300.png';
 import astroLogoWhite from '../assets/aMlab_MARCA_mono_blanco.png';
 import astroImage1 from '../assets/DSC08790.jpg';
 import astroImage2 from '../assets/DSC08613.jpg';
 import astroImage3 from '../assets/projecto-dispersor-vieiro.jpg';
 import astroImage4 from '../assets/DSC09944.jpg';
-
+import inst from '../assets/instagram.svg';
+import youtube from '../assets/youtube.svg';
+import linkdin from '../assets/linkedin.svg';
+import './styles.css';
 const images = [
   { src: astroImage1.src, caption: 'Cantas bocas haberá que alimentar en A Mariña 2050?', place: ' Comedor do IES María Sarmiento en Viveiro' },
   { src: astroImage2.src, caption: 'E se a solución ao futuro do territorio está nas túas mans?', place: 'Escola de Hostalería no IES de Foz' },
-  { src: astroImage3.src, caption: 'A diversidade alimentaria é a nosa forza. Cómo a protexemos?', place: 'Estación Agroecolóxica de Vieiro de Projecto Dispersor e Calara en Viveiro' },
+  { src: astroImage3.src, caption: 'A diversidade alimentaria é a nosa forza. Cómo a protexemos?', place: 'Estación Agroecolóxica de Vieiro de Projecto Dispersor e Calará en Viveiro' },
   { src: astroImage4.src, caption: '"Pasado, presente e futuro: conectemos as historias que nos definen.', place: 'Produtores interxeracionais colleitando faba da IXP Faba de Lourenzá' },
 ];
 ---
@@ -17,16 +19,33 @@ const images = [
 <div id="container">
 	<nav class="ama-nav">
 		<div class="ama-nav-wrapper">
-			<a href="https://astro.build"><img src={astroLogoWhite.src} width="150"  alt="A Mariña Lab" /></a>
+			<a href="https://amalab.es"><img src={astroLogoWhite.src} width="150"  alt="A Mariña Lab" /></a>
+			<ul class="ama-sociales">
+				<li><a href="https://www.instagram.com/amarinalab/" target="_blank"><span class="ama-icon"><img src={inst.src} alt="Instagram" /></span></li></a>
+				<li><a href="https://www.youtube.com/@AMari%C3%B1alab" target="_blank"><span class="ama-icon"><img src={youtube.src} alt="Youtube" /></span></li></a>
+				<li><a href="https://www.linkedin.com/showcase/a-mari%C3%B1a-lab/" target="_blank"><span class="ama-icon"><img src={linkdin.src} alt="Linkedin" /></span></li></a>
+			</ul>
 		</div>
 	</nav>
 	<main class="main">
 		<section id="hero" class="hero">
+			<div class="ama-cta">
+				<hgroup>
+					<h1>
+						Cociñando A Mariña futura
+					</h1>
+					<h2>Porque alimentar o presente é construír o futuro</h2>
+				</hgroup>
+				<div class="cta-buttons">
+					<a class="primary" href="mailto:iniciativapratodo@gmail.com">Únete á transformación!</a>
+					<a class="secundary" href="#">Colabora como entidade</a>
+				</div>
+			</div>
 			<div class="hero-image">
 				{
 					images.map((image) => (
-						<div class="hero-carrusel relative w-full h-[400px] flex items-center justify-center overflow-hidden">
-							<img id="carousel-image" src={image.src} alt="" class="absolute transition-opacity duration-500 opacity-100" />
+						<div class="hero-carrusel relative w-full h-[400px] flex items-center justify-center overflow-hidden" style={`background-image: url(${image.src});`}>
+							<div class="ama-overlight"></div>
 							<div id="carousel-caption" class="caption-image absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-4 rounded">
 								<p>{image.caption}</p>
 								<span>{image.place}</span>
@@ -35,16 +54,6 @@ const images = [
 					))
 				}
 			</div>
-
-			<hgroup>
-				<h1>
-					Cociñando A Mariña futura
-				</h1>
-			</hgroup>
-		</section>
-		<section class="ama-cta">
-			<a class="primary" href="#">Únete á transformación!</a>
-			<a class="secundary" href="#">Colabora como entidade</a>
 		</section>
 	</main>
 </div>
@@ -65,222 +74,5 @@ let index = 0;
 </script>
 <style>
 	/* Register your custom font family and tell the browser where to find it. */
-@font-face {
-  font-family: 'Avenir-Medium';
-  src: url('/fonts/avenir/Avenir-Medium.woff') format('woff');
-  font-weight: Medium;
-  font-style: Medium;
-  font-display: swap;
-}
-@font-face {
-  font-family: 'nunito-medium';
-  src: url('/fonts/nunito/Nunito-Medium.ttf') format('woff');
-  font-weight: Medium;
-  font-style: Medium;
-  font-display: swap;
-}
-body{
-	font-family: 'nunito-medium';
-}
-	#container {
-		height: 100%;
-	}
 
-	main {
-		height: 100%;
-	}
-	.main{
-		display: flex;
-		flex-direction: column;
-	}
-	.ama-nav{
-		display: flex;
-		justify-content: center;
-		width: 100%;
-		margin: 0 auto;
-		padding: .5em 0;
-		background-color: #009FA3;
-		.ama-nav-wrapper{
-			width: 100%;
-			max-width: 1400px;
-		}
-		a{
-			aspect-ratio: 400 / 173;
-		}
-		ul{
-			display: flex;
-			list-style: none;
-			li{
-				a{
-						text-decoration: none;
-						color: black;
-				}
-			}
-		}
-	}
-
-	hgroup{
-		display: flex;
-    position: absolute;
-    justify-content: center;
-    align-self: center;
-    width: 100%;
-    top: 146px;
-    text-align: center;
-    text-transform: uppercase;
-    left: 2rem;
-	}
-	.hero{
-		.hero-image{
-			position: relative;
-			width: 100%;
-			aspect-ratio: 1.5;
-			margin: 0 auto;
-			overflow: hidden;
-			img{
-				width: 100%;
-				object-fit: contain;
-			}
-		}
-		.hero-carrusel {
-			position: absolute;
-			transition: opacity 0.5s ease-in-out;
-		}
-		.caption-image{
-			position: absolute;
-			width: 100%;
-			bottom: 0;
-			background: #000000ba;
-			padding: 1.4em 0 1.4em 0;
-			text-align: center;
-			p{
-				color: white;
-				font-weight: 700;
-			}
-			span{
-				color: rgb(202, 202, 202);
-			}
-		}
-	}
-	.ama-cta{
-		display: flex;
-		justify-content: center;
-		margin-top: 1rem;
-		gap:.3em;
-		padding-bottom: 10em;
-		a{
-			text-decoration: none;
-			color: white;
-			background-color: #d83333;
-			padding: 1em 2em;
-			border-radius: 8px;
-			&:hover{
-				opacity: .8;
-			}
-			&.primary{
-				background-color: #3c9ca0;
-			}
-			&.secundary{
-				background-color: black;
-			}
-		}
-	}
-
-	h1 {
-    font-size: 4em;
-    margin-top: 0.25em;
-    margin-bottom: 0.4em;
-    color: white;
-    line-height: 1em;
-    text-shadow: 0px 1px 1px #929292;
-	}
-
-	 
-
-	h2 {
-		margin: 0 0 1em;
-		font-weight: normal;
-		color: #111827;
-		font-size: 20px;
-	}
-
-	p {
-		color: #4b5563;
-		font-size: 16px;
-		line-height: 24px;
-		letter-spacing: -0.006em;
-		margin: 0;
-	}
-
-	code {
-		display: inline-block;
-		background:
-			linear-gradient(66.77deg, #f3cddd 0%, #f5cee7 100%) padding-box,
-			linear-gradient(155deg, #d83333 0%, #f041ff 18%, #f5cee7 45%) border-box;
-		border-radius: 8px;
-		border: 1px solid transparent;
-		padding: 6px 8px;
-	}
-
-	.box {
-		padding: 16px;
-		background: rgba(255, 255, 255, 1);
-		border-radius: 16px;
-		border: 1px solid white;
-	}
-
-	#news {
-		position: absolute;
-		bottom: 16px;
-		right: 16px;
-		max-width: 300px;
-		text-decoration: none;
-		transition: background 0.2s;
-		backdrop-filter: blur(50px);
-	}
-
-	#news:hover {
-		background: rgba(255, 255, 255, 0.55);
-	}
-
-	@media screen and (max-height: 368px) {
-		#news {
-			display: none;
-		}
-	}
-
-	@media screen and (max-width: 768px) {
-		#container {
-			display: flex;
-			flex-direction: column;
-		}
-		.ama-cta{
-			flex-direction: column;
-			text-align: center;
-			width: 100%;
-			justify-content: center;
-			align-items: center;
-		}
-		h1{
-			font-size: 1.4em;
-		}
-		#links {
-			flex-wrap: wrap;
-		}
-
-		#links a.button {
-			padding: 14px 18px;
-		}
-
-		#news {
-			right: 16px;
-			left: 16px;
-			bottom: 2.5rem;
-			max-width: 100%;
-		}
-
-		h1 {
-			line-height: 1.5;
-		}
-	}
 </style>
