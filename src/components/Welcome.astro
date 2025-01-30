@@ -6,10 +6,10 @@ import astroImage3 from '../assets/projecto-dispersor-vieiro.jpg';
 import astroImage4 from '../assets/DSC09944.jpg';
 
 const images = [
-  { src: astroImage1.src, caption: 'Cantas bocas haberá que alimentar en A Mariña 2050? Comedor do IES María Sarmiento en Viveiro' },
-  { src: astroImage2.src, caption: 'Segunda imagen de prueba con su respectiva descripción.' },
-  { src: astroImage3.src, caption: 'Tercera imagen con otra descripción.' },
-  { src: astroImage4.src, caption: '"Pasado, presente e futuro: conectemos as historias que nos definen."Produtores interxeracionais colleitando faba da IXP Faba de Lourenzá ' },
+  { src: astroImage1.src, caption: 'Cantas bocas haberá que alimentar en A Mariña 2050?', place: ' Comedor do IES María Sarmiento en Viveiro' },
+  { src: astroImage2.src, caption: 'E se a solución ao futuro do territorio está nas túas mans?', place: 'Escola de Hostalería no IES de Foz' },
+  { src: astroImage3.src, caption: 'A diversidade alimentaria é a nosa forza. Cómo a protexemos?', place: 'Estación Agroecolóxica de Vieiro de Projecto Dispersor e Calara en Viveiro' },
+  { src: astroImage4.src, caption: '"Pasado, presente e futuro: conectemos as historias que nos definen.', place: 'Produtores interxeracionais colleitando faba da IXP Faba de Lourenzá' },
 ];
 ---
 
@@ -34,6 +34,7 @@ const images = [
 							<img id="carousel-image" src={image.src} alt="" class="absolute transition-opacity duration-500 opacity-100" />
 							<div id="carousel-caption" class="caption-image absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-4 rounded">
 								<p>{image.caption}</p>
+								<span>{image.place}</span>
 							</div>
 						</div>
 					))
@@ -54,7 +55,7 @@ let index = 0;
 
   
 	function updateCarousel() {
-    carousels.forEach((el:HTMLElement, i) => {
+    carousels.forEach((el:any, i) => {
       el.style.opacity = i === index ? "1" : "0";
     });
     index = (index + 1) % carousels.length;
@@ -63,8 +64,26 @@ let index = 0;
   setInterval(updateCarousel, 3000)
 </script>
 <style>
+	/* Register your custom font family and tell the browser where to find it. */
+@font-face {
+  font-family: 'Avenir-Medium';
+  src: url('/fonts/avenir/Avenir-Medium.woff') format('woff');
+  font-weight: Medium;
+  font-style: Medium;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'nunito-medium';
+  src: url('/fonts/nunito/Nunito-Medium.ttf') format('woff');
+  font-weight: Medium;
+  font-style: Medium;
+  font-display: swap;
+}
+body{
+
+	font-family: 'nunito-medium';
+}
 	#container {
-		font-family: Inter, Roboto, 'Helvetica Neue', 'Arial Nova', 'Nimbus Sans', Arial, sans-serif;
 		height: 100%;
 	}
 
@@ -92,7 +111,6 @@ let index = 0;
 				}
 			}
 		}
-
 	}
 
 	.hero{
@@ -102,6 +120,7 @@ let index = 0;
 			align-self: center;
 			width: 100%;
 			text-align: center;
+			text-transform: uppercase;
 		}
 		.hero-image{
 			position: relative;
@@ -118,15 +137,21 @@ let index = 0;
 		}
 		.hero-carrusel {
 			position: absolute;
+			transition: opacity 0.5s ease-in-out;
 		}
 		.caption-image{
 			position: absolute;
+			width: 100%;
 			bottom: 0;
 			background: #000000ba;
-			padding: 1.4em 11.4em 1.4em 11em;
+			padding: 1.4em 0 1.4em 0;
 			text-align: center;
 			p{
 				color: white;
+				font-weight: 700;
+			}
+			span{
+				color: rgb(202, 202, 202);
 			}
 		}
 	}
@@ -155,8 +180,9 @@ let index = 0;
 	}
 
 	h1 {
-		font-size: 22px;
+		font-size: 2em;
 		margin-top: 0.25em;
+		margin-bottom: 0.4em;
 	}
 
 	 
@@ -218,9 +244,16 @@ let index = 0;
 			display: flex;
 			flex-direction: column;
 		}
-
-
-
+		.ama-cta{
+			flex-direction: column;
+			text-align: center;
+			width: 100%;
+			justify-content: center;
+			align-items: center;
+		}
+		h1{
+			font-size: 1.4em;
+		}
 		#links {
 			flex-wrap: wrap;
 		}
