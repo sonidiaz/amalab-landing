@@ -1,5 +1,6 @@
 ---
 import astroLogo from '../assets/aMa_lab-logo300x300.png';
+import astroLogoWhite from '../assets/aMlab_MARCA_mono_blanco.png';
 import astroImage1 from '../assets/DSC08790.jpg';
 import astroImage2 from '../assets/DSC08613.jpg';
 import astroImage3 from '../assets/projecto-dispersor-vieiro.jpg';
@@ -15,18 +16,12 @@ const images = [
 
 <div id="container">
 	<nav class="ama-nav">
-		<a href="https://astro.build"
-				><img src={astroLogo.src} width="50" height="50" alt="A Mariña Lab" /></a
-			>
-			
+		<div class="ama-nav-wrapper">
+			<a href="https://astro.build"><img src={astroLogoWhite.src} width="150"  alt="A Mariña Lab" /></a>
+		</div>
 	</nav>
 	<main class="main">
 		<section id="hero" class="hero">
-			<hgroup>
-				<h1>
-					Cociñando A Mariña futura
-				</h1>
-			</hgroup>
 			<div class="hero-image">
 				{
 					images.map((image) => (
@@ -39,8 +34,13 @@ const images = [
 						</div>
 					))
 				}
-				
 			</div>
+
+			<hgroup>
+				<h1>
+					Cociñando A Mariña futura
+				</h1>
+			</hgroup>
 		</section>
 		<section class="ama-cta">
 			<a class="primary" href="#">Únete á transformación!</a>
@@ -80,7 +80,6 @@ let index = 0;
   font-display: swap;
 }
 body{
-
 	font-family: 'nunito-medium';
 }
 	#container {
@@ -96,11 +95,18 @@ body{
 	}
 	.ama-nav{
 		display: flex;
-		justify-content: space-around;
-		width: 95%;
-		max-width: 1920px;
+		justify-content: center;
+		width: 100%;
 		margin: 0 auto;
 		padding: .5em 0;
+		background-color: #009FA3;
+		.ama-nav-wrapper{
+			width: 100%;
+			max-width: 1400px;
+		}
+		a{
+			aspect-ratio: 400 / 173;
+		}
 		ul{
 			display: flex;
 			list-style: none;
@@ -113,22 +119,23 @@ body{
 		}
 	}
 
+	hgroup{
+		display: flex;
+    position: absolute;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    top: 146px;
+    text-align: center;
+    text-transform: uppercase;
+    left: 2rem;
+	}
 	.hero{
-		hgroup{
-			display: flex;
-			justify-content: center;
-			align-self: center;
-			width: 100%;
-			text-align: center;
-			text-transform: uppercase;
-		}
 		.hero-image{
 			position: relative;
-			width: 98%;
-			max-width: 1000px;
+			width: 100%;
 			aspect-ratio: 1.5;
 			margin: 0 auto;
-			border-radius: 17px;
 			overflow: hidden;
 			img{
 				width: 100%;
@@ -180,9 +187,12 @@ body{
 	}
 
 	h1 {
-		font-size: 2em;
-		margin-top: 0.25em;
-		margin-bottom: 0.4em;
+    font-size: 4em;
+    margin-top: 0.25em;
+    margin-bottom: 0.4em;
+    color: white;
+    line-height: 1em;
+    text-shadow: 0px 1px 1px #929292;
 	}
 
 	 
