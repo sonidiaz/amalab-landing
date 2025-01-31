@@ -47,10 +47,10 @@ const images = [
 			</div>
 			<div class="hero-image">
 				{
-					images.map((image) => (
-						<div class="hero-carrusel relative w-full h-[400px] flex items-center justify-center overflow-hidden" style={`background-image: url(${image.src});`}>
+					images.map((image, index) => (
+						<div class="hero-carrusel" style={`background-image: url(${image.src});`}>
 							<div class="ama-overlight"></div>
-							<div id="carousel-caption" class="caption-image absolute bottom-4 left-4 bg-black bg-opacity-50 text-white p-4 rounded">
+							<div id="carousel-caption" class={`caption-image caption-${index}`}>
 								<p>{image.caption}</p>
 								<span>{image.place}</span>
 							</div>
@@ -81,7 +81,7 @@ const images = [
 
 let index = 0;
 const carousels:any = document.querySelectorAll(".hero-carrusel");
-const captions:any = document.querySelectorAll("#carousel-caption");
+const captions:any = document.querySelectorAll(".caption-image");
 const firstImage = new Image();
 firstImage.src = carousels[0].style.backgroundImage.replace(/url\("|"\)/g, "");
 firstImage.onload = () => {
@@ -92,9 +92,14 @@ firstImage.onload = () => {
   setInterval(updateCarousel, 6000);
 };
 function updateCarousel() {
+	document.querySelectorAll('.caption-image').forEach((caption:any) => {
+		caption.style.opacity = 0;
+	})
   carousels.forEach((el:any, i:number) => {
     el.style.opacity = i === index ? "1" : "0";
   });
+	const curretnCaption:any = document.querySelector('.caption-' + index)
   index = (index + 1) % carousels.length;
+	curretnCaption.style.opacity = 1;
 }
 </script>
