@@ -112,7 +112,8 @@ body {
 .hero .caption-image {
   position: absolute;
   width: 100%;
-  top: calc(100vh - 8em);
+  /* top: calc(100vh - 8em); */
+	bottom: 0;
   padding: 1.4em 0 1.4em 0;
   text-align: center;
 	opacity: 0;
@@ -253,7 +254,8 @@ h2 {
     flex-direction: column;
   }
 	.hero .caption-image{
-		top: calc(100vh - 14em);
+		/* top: calc(100vh - 14em); */
+		bottom: 0;
 	}
   .hero .caption-image p {
     font-size: 1.2rem;
