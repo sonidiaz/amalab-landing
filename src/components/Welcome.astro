@@ -7,6 +7,10 @@ import astroImage4 from '../assets/DSC09944.jpg';
 import inst from '../assets/instagram.svg';
 import youtube from '../assets/youtube.svg';
 import linkdin from '../assets/linkedin.svg';
+import logoPratDO from '../assets/20130222_logo_fondo.png';
+import logoCampustTerra from '../assets/usc-campusterra.png';
+import logoMerycse from '../assets/merycse.jpg';
+import logoLugoRural from '../assets/diputa-lugo-rural.png';
 import './styles.css';
 const images = [
   { src: astroImage1.src, caption: 'Cantas bocas haberá que alimentar en A Mariña 2050?', place: ' Comedor do IES María Sarmiento en Viveiro' },
@@ -37,8 +41,8 @@ const images = [
 					<h2>Porque alimentar o presente é construír o futuro</h2>
 				</hgroup>
 				<div class="cta-buttons">
-					<a class="primary" href="mailto:iniciativapratodo@gmail.com">Únete á transformación!</a>
-					<a class="secundary" href="#">Colabora como entidade</a>
+					<a class="primary" href="https://docs.google.com/forms/d/e/1FAIpQLSdJfDeEmFgFun9jrdM4dkg1NPmKwTHINWTQa8r61DZgCp8sbg/viewform" target="_blank">Únete á transformación!</a>
+					<a class="secundary" href="https://docs.google.com/forms/d/e/1FAIpQLSe4btIeK8pnN3fIJzAcVXpxSehnF_iiaBpmbRb-xXRgCLlBXw/viewform" target="_blank">Colabora como entidade</a>
 				</div>
 			</div>
 			<div class="hero-image">
@@ -57,6 +61,22 @@ const images = [
 		</section>
 	</main>
 </div>
+<footer>
+	<div class="ama-footer">
+		<div class="ama-patro">
+			<span>Promove</span>
+			<img src={logoPratDO.src} alt="">
+		</div>
+		<div class="ama-colabora">
+			<span>Colabora</span>
+			<div class="logos">
+				<img src={logoCampustTerra.src} alt="">
+				<img class="logoMerycse" src={logoMerycse.src} alt="">
+				<img src={logoLugoRural.src} alt="">
+			</div>
+		</div>
+	</div>
+</footer>
 <script>
 
 let index = 0;
@@ -72,7 +92,3 @@ let index = 0;
 
   setInterval(updateCarousel, 6000)
 </script>
-<style>
-	/* Register your custom font family and tell the browser where to find it. */
-
-</style>
