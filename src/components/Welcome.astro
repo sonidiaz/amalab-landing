@@ -80,15 +80,21 @@ const images = [
 <script>
 
 let index = 0;
-  const carousels = document.querySelectorAll(".hero-carrusel");
-
-  
-	function updateCarousel() {
-    carousels.forEach((el:any, i) => {
-      el.style.opacity = i === index ? "1" : "0";
-    });
-    index = (index + 1) % carousels.length;
-  }
-
-  setInterval(updateCarousel, 6000)
+const carousels:any = document.querySelectorAll(".hero-carrusel");
+const captions:any = document.querySelectorAll("#carousel-caption");
+const firstImage = new Image();
+firstImage.src = carousels[0].style.backgroundImage.replace(/url\("|"\)/g, "");
+firstImage.onload = () => {
+  captions.forEach((caption:any) => caption.style.display = "block");
+	document.querySelectorAll(".caption-image").forEach(caption => {
+		caption.classList.add("visible");		
+	});
+  setInterval(updateCarousel, 6000);
+};
+function updateCarousel() {
+  carousels.forEach((el:any, i:number) => {
+    el.style.opacity = i === index ? "1" : "0";
+  });
+  index = (index + 1) % carousels.length;
+}
 </script>

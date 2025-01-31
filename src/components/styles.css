@@ -84,6 +84,7 @@ main {
 }
 .hero {
   height: 100vh;
+	background-color: black;
 }
 .hero .hero-image {
   position: relative;
@@ -100,6 +101,7 @@ main {
   background-size: cover;
   background-repeat: no-repeat;
   transition: opacity 0.5s ease-in-out;
+
 }
 .hero .ama-overlight {
   position: absolute;
@@ -112,9 +114,13 @@ main {
 .hero .caption-image {
   position: absolute;
   width: 100%;
-  top: calc(100dvh - 8em);
+  top: calc(100vh - 8em);
   padding: 1.4em 0 1.4em 0;
   text-align: center;
+	opacity: 0;
+}
+.hero .caption-image.visible {
+	opacity: 1;
 }
 .hero .caption-image p {
   color: white;
